@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>HTML5 Canvas</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
 <canvas id="draw" width="800" height="800"></canvas>
@@ -57,6 +58,18 @@ canvas.addEventListener('mouseup', () => isDrawing = false)
 canvas.addEventListener('mouseout', () => isDrawing = false)
 
 
+const secretCode = 'matt';
+const pressed = []
+window.addEventListener('keyup', (e) => {
+  console.log(e)
+  pressed.push(e.key)
+  pressed.splice(-secretCode.length -1, pressed.length - secretCode.length);
+  if(pressed.join('').includes(secretCode)){
+       console.log("DING DING")
+       cornify_add()
+     }
+})
+
 
 
 </script>
@@ -64,6 +77,9 @@ canvas.addEventListener('mouseout', () => isDrawing = false)
 <style>
   html, body {
     margin:0;
+  }
+  img {
+    user-select: none;
   }
 </style>
 
