@@ -45,10 +45,34 @@
 
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
-
+const domAppend = document.querySelector('#bands')
 const sortedBands = bands.sort(function(a,b) {
-  return a > b ? 1 : -1; 
+  let aArray = a.split(' ')
+  let bArray = b.split(' ')
+  
+  if(aArray[0] === 'The' || 'An' || 'A'){
+    aArray = aArray.slice(1,aArray.length).join(' ')
+  }
+  if(bArray[0] == 'The' || 'An' || 'A'){
+    bArray = bArray.slice(1,bArray.length).join(' ')
+  }
+  if(aArray > bArray){
+   return 1
+  }else{
+    return -1
+  }
 })
+
+function addToDom(){
+  const html = sortedBands.map(band => {
+    return `
+      <li>${band}</li>
+    `
+  }).join('');
+  domAppend.innerHTML = html
+}
+
+addToDom();
 
 </script>
 
