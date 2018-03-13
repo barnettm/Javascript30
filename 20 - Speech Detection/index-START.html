@@ -15,6 +15,7 @@
 
   const recognition = new SpeechRecognition();
   recognition.interimResults = true;
+  recognition.lang = 'en-US';
 
 
   let p = document.createElement('p');
@@ -23,9 +24,9 @@
 
   recognition.addEventListener('result', e => {
     const transcript = Array.from(e.results)
-        .map(result => result)
-        // .map(result => result.transcript)
-        console.log(transcript)
+      .map(result => result[0])
+      .map(result => result.transcript)
+      .join('');
     
   })
 
