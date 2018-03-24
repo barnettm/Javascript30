@@ -53,6 +53,10 @@ nav {
   box-shadow: 0 px rgba(0,0,0,.1)
 }
 
+.fixed-nav li.logo {
+  max-width: 500px;
+}
+
 nav ul {
   margin: 0;
   padding:0;
@@ -72,7 +76,7 @@ li.logo {
   max-width:0;
   overflow: hidden;
   background: white;
-  transition: all .5s;
+  transition: all 2s;
   font-weight: 600;
   font-size: 30px;
 }
